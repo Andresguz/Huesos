@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: skins
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: head
+    m_Hash: -1477183844
+    m_CategoryList:
+    - m_Name: gorro
+      m_Hash: 419717270
+      m_Sprite: {fileID: 5069838404638440445, guid: 883dd303a052865468c0c092d5d049f0,
+        type: 3}
+    - m_Name: sombrero
+      m_Hash: 582306782
+      m_Sprite: {fileID: 8702707799439713432, guid: 419c57f5728b5cd40a713d874a8f77e0,
+        type: 3}
+    - m_Name: premium
+      m_Hash: -1992485755
+      m_Sprite: {fileID: 6292823266793149547, guid: ff253d4049467a04d94c0f1fec076d69,
+        type: 3}
+  - m_Name: torso
+    m_Hash: 660585605
+    m_CategoryList:
+    - m_Name: 1
+      m_Hash: -2082672713
+      m_Sprite: {fileID: -1752220133296263362, guid: 883dd303a052865468c0c092d5d049f0,
+        type: 3}
+    - m_Name: 2
+      m_Hash: 450215437
+      m_Sprite: {fileID: -9051625087512221755, guid: ff253d4049467a04d94c0f1fec076d69,
+        type: 3}
+    - m_Name: 3
+      m_Hash: 1842515611
+      m_Sprite: {fileID: 4880832726279697241, guid: 419c57f5728b5cd40a713d874a8f77e0,
+        type: 3}
+  - m_Name: brazo
+    m_Hash: -1523648635
+    m_CategoryList:
+    - m_Name: 1
+      m_Hash: -2082672713
+      m_Sprite: {fileID: 5190207024644565906, guid: 883dd303a052865468c0c092d5d049f0,
+        type: 3}
+    - m_Name: 2
+      m_Hash: 450215437
+      m_Sprite: {fileID: -2272897179019134313, guid: ff253d4049467a04d94c0f1fec076d69,
+        type: 3}
+    - m_Name: 3
+      m_Hash: 1842515611
+      m_Sprite: {fileID: 6734097762345850545, guid: 419c57f5728b5cd40a713d874a8f77e0,
+        type: 3}
