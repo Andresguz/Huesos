@@ -12,6 +12,8 @@ public class monkey : MonoBehaviour
     public bool dano = false;
     public bool llaveActiva = false;
     float x = 1;
+
+    public float monedas = 0;
     void Start()
     {
      
@@ -79,7 +81,11 @@ public class monkey : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-     
+        if (other.CompareTag("coin"))
+        {
+           Destroy(other.gameObject,1.0f);
+            monedas++;
+        }
 
     }
 }
