@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class monkey : MonoBehaviour
 {
-    [SerializeField]
-    float velocidad = 3.0f;
+   // [SerializeField]
+    float velocidad = 5.0f;
     [SerializeField]
     float fuerzaSalto = 5.0f;
     public Animator MOKEY;
     public bool dano = false;
     public bool llaveActiva = false;
     float x = 1;
-
+    Rigidbody2D rb;
+    Vector2 move;
     public float monedas = 0;
+    private void Awake()
+    {
+        rb=GetComponent<Rigidbody2D>();
+    }
     void Start()
     {
      
@@ -26,7 +31,7 @@ public class monkey : MonoBehaviour
     {
         MovimientoPlayer();
 
-
+        move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
     void MovimientoPlayer()
     {
@@ -45,6 +50,11 @@ public class monkey : MonoBehaviour
         if (Input.GetKey("q"))
         {     
             MOKEY.SetBool("damage", true);
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+           velocidad =10;
         }
         if (Input.GetKey("d"))
         {

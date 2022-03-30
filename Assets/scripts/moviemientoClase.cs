@@ -15,10 +15,10 @@ public class moviemientoClase : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.AddForce(move * speed * Time.deltaTime);
-       // rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
-        rb.velocity = move *speed * Time.deltaTime;
-       // rb.MovePosition(rb.position, rb.position);
+        //  rb.AddForce(move * speed * Time.deltaTime);
+        // rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
+        rb.velocity = move * speed;
+     //  rb.MovePosition(rb.position+(move*speed*Time.deltaTime));
     }
     void Update()
     {
