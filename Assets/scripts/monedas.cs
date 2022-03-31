@@ -12,6 +12,7 @@ public class monedas : MonoBehaviour
     }
     public void Update()
     {
-        contCoin.text = monkey.monedas.ToString();
+        //contCoin.text = monkey.monedas.ToString();
+        contCoin.text = GameManager.instance.coins.ToString();
     }
 }

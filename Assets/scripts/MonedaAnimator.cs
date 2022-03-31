@@ -11,7 +11,7 @@ public class MonedaAnimator : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Debug.Log("pp");
-            animator.SetBool("coin", true);
+        //    animator.SetBool("coin", true);
         }
     }
 }

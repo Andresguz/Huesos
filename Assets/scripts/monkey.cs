@@ -7,7 +7,7 @@ public class monkey : MonoBehaviour
    // [SerializeField]
     float velocidad = 5.0f;
     [SerializeField]
-    float fuerzaSalto = 5.0f;
+    float fuerzaSalto = 8.0f;
     public Animator MOKEY;
     public bool dano = false;
     public bool llaveActiva = false;
@@ -15,6 +15,8 @@ public class monkey : MonoBehaviour
     Rigidbody2D rb;
     Vector2 move;
     public float monedas = 0;
+    public coinsManager coins;
+   // GameManager gameManager;
     private void Awake()
     {
         rb=GetComponent<Rigidbody2D>();
@@ -93,8 +95,10 @@ public class monkey : MonoBehaviour
     {
         if (other.CompareTag("coin"))
         {
-           Destroy(other.gameObject,1.0f);
-            monedas++;
+        //    coins.SartCoinMove(other.transform.position);
+           Destroy(other.gameObject);
+            GameManager.instance.coins++;
+           // monedas++;
         }
 
     }
