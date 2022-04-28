@@ -27,7 +27,7 @@ public class monkey : MonoBehaviour
     float direction = 0;
     bool isRuning = false;
     bool isJump;
-  public  Joystick joy;
+ 
     private void Awake()
     {
         rb=GetComponent<Rigidbody2D>();
@@ -151,13 +151,13 @@ public class monkey : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("coin"))
-        {
-        //    coins.SartCoinMove(other.transform.position);
-           Destroy(other.gameObject);
-            GameManager.instance.coins++;
-           // monedas++;
-        }
+        //if (other.CompareTag("coin"))
+        //{
+        ////    coins.SartCoinMove(other.transform.position);
+        //   Destroy(other.gameObject);
+        //    GameManager.instance.coins++;
+        //   // monedas++;
+        //}
 
     }
 }
