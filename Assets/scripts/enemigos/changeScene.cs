@@ -9,8 +9,10 @@ public class changeScene : MonoBehaviour
     {
         SceneManager.LoadScene(scene);
     }
-    public void cambioEscena1()
+    private void Update()
     {
-        SceneManager.LoadScene(0);
+        //if (Input.GetKey(KeyCode.L)) {
+        //    SceneManager.LoadScene("HUESO");
+        //}
     }
 }

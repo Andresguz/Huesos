@@ -1,91 +1,149 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class monkey : MonoBehaviour
 {
-   // [SerializeField]
-    float velocidad = 5.0f;
+   // 
+
     [SerializeField]
     float fuerzaSalto = 8.0f;
     public Animator MOKEY;
     public bool dano = false;
     public bool llaveActiva = false;
     float x = 1;
-    Rigidbody2D rb;
+   
     Vector2 move;
     public float monedas = 0;
     public coinsManager coins;
-   // GameManager gameManager;
+    // GameManager gameManager;
+    public Inputs inputActions;
+  
+    public Rigidbody2D rb;
+
+  public  float velocidad;
+    float direction = 0;
+    bool isRuning = false;
+    bool isJump;
+  public  Joystick joy;
     private void Awake()
     {
         rb=GetComponent<Rigidbody2D>();
+        inputActions = new Inputs();
+        inputActions.Enable();
+        inputActions.Player.move.performed += ctx => { direction = ctx.ReadValue<float>(); };
+        inputActions.Player.atack.performed += _ => atack();
+        inputActions.Player.atack.canceled += _ => stopAtack();
+        inputActions.Player.Jump.performed +=_=> jump();
+        inputActions.Player.Jump.canceled +=_=> jumpStop();   
+        inputActions.Player.run.performed +=_=> run();
+        inputActions.Player.run.canceled +=_=> runStop();
+
     }
+    private void OnEnable()
+    {
+        inputActions.Enable();
+      //  inputActions.Player.atack.started += DoAtack;
+      
+        inputActions.Player.Enable();
+    }
+    private void OnDisable()
+    {
+        inputActions.Disable();
+  
+ 
+        inputActions.Player.Disable();
+    }
+
+
     void Start()
     {
-     
-
         MOKEY = GetComponent<Animator>();
     }
-
-    // Update is called once per frame
+ 
+   
     void Update()
     {
+        if (isRuning == true)
+        {
+            velocidad = 350f;
+        }
+        else
+        {
+            velocidad = 190f;
+        }
         MovimientoPlayer();
 
-        move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+        
     }
-    void MovimientoPlayer()
+   public void atack()
     {
-        if (dano == false)
+        MOKEY.SetBool("atack", true);
+    }
+    public void stopAtack()
+    {
+        MOKEY.SetBool("atack", false);
+    }
+    public void run()
+    {
+        //MOKEY.SetTrigger("corr");
+        MOKEY.SetBool("corre", true);
+        isRuning = true;
+    }
+    public void runStop()
+    {
+        MOKEY.SetBool("corre", false);
+        isRuning =false;
+    }
+    public void MovimientoPlayer()
+    {
+        if (isJump==false)
         {
-            MOKEY.SetBool("jump", false);
-            MOKEY.SetBool("run", false);
-            MOKEY.SetBool("iddle", false);
-            MOKEY.SetBool("damage", false);
-            MOKEY.SetBool("atack", false);
-        }
-        if (Input.GetKey("e"))
-        {        
-            MOKEY.SetBool("atack", true);
-        }
-        if (Input.GetKey("q"))
-        {     
-            MOKEY.SetBool("damage", true);
+            MOKEY.SetBool("run", true);
         }
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (direction < 0)
         {
-           velocidad =10;
-        }
-        if (Input.GetKey("d"))
-        {
-          MOKEY.SetBool("atack", false);
+            // MOKEY.SetBool("atack", false);
             MOKEY.SetBool("run", true);
-         
-            transform.Translate(Vector2.right * Time.deltaTime * velocidad);
+            transform.localScale = new Vector3(1F, 1, 1);
+        }
+        else
+        {
+            MOKEY.SetBool("run", true);
+            //   MOKEY.SetBool("atack", false);
             transform.localScale = new Vector3(-1F, 1, 1);
-    
-            //transform.localScale.x = Vector2(1f,0);
         }
-        if (Input.GetKey("a"))
+        if (direction == 0)
         {
-            MOKEY.SetBool("atack", false);
-            MOKEY.SetBool("run", true);
-         transform.localScale = new Vector3(1F, 1, 1);
-            transform.Translate(Vector2.left * Time.deltaTime * velocidad);
-           // gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            MOKEY.SetBool("run", false);
+     
         }
-        if (Input.GetKey("w") && Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.y) < 0.01f)
-        {
-            MOKEY.SetBool("atack", false);
+      
+    rb.velocity = new Vector2(direction * velocidad * Time.deltaTime, rb.velocity.y) ;
+        
 
-            gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
+    }
+  public  void jumpStop()
+    {
+        isJump=false;
+        MOKEY.SetBool("jump", false);
+    }
+   public void jump()
+    {
+        isJump=true;
+      if (Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.y) < 0.01f)
+        {
+           
+            MOKEY.SetBool("atack", false);
             MOKEY.SetBool("jump", true);
-//MOKEY.SetBool("iddle", false);
-
+            gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
+        
         }
-
+      
     }
     void OnCollisionEnter2D(Collision2D collision)
     {

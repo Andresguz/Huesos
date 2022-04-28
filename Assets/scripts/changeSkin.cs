@@ -12,16 +12,16 @@ public class changeSkin : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            spriteResolver.SetCategoryAndLabel("head", "premium");
-            //spriteResolver.SetCategoryAndLabel("torso", "2");
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            spriteResolver.SetCategoryAndLabel("head", "gorro");
-            //spriteResolver.SetCategoryAndLabel("torso", "3");
-        }
+        //if (Input.GetKeyDown(KeyCode.F))
+        //{
+        //    spriteResolver.SetCategoryAndLabel("head", "premium");
+        //    //spriteResolver.SetCategoryAndLabel("torso", "2");
+        //}
+        //if (Input.GetKeyDown(KeyCode.E))
+        //{
+        //    spriteResolver.SetCategoryAndLabel("head", "gorro");
+        //    //spriteResolver.SetCategoryAndLabel("torso", "3");
+        //}
     }
 
 }
