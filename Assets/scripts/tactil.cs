@@ -5,6 +5,7 @@ using UnityEngine;
 public class tactil : MonoBehaviour
 {
     public Touch Toque;
+    public CoinCollection Coinsmove;
     void Start()
     {
         
@@ -36,8 +37,11 @@ public class tactil : MonoBehaviour
             hit = Physics2D.Raycast(test, Vector2.zero);
             if (hit.collider.CompareTag("coin"))
             {
+                Coinsmove.StartCoinMove(hit.transform.position, () => {
+                    GameManager.instance.coins++;
+                });
                 Destroy(hit.transform.gameObject);
-                GameManager.instance.coins++;
+                
             }
         }
 
