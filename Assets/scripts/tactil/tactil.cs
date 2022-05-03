@@ -22,9 +22,10 @@ public class tactil : MonoBehaviour
             hit=Physics2D.Raycast(test,Vector2.zero);
             if (hit.collider.CompareTag("coin"))
             {
-               
-                 Destroy(hit.transform.gameObject);
-                GameManager.instance.coins++;
+                Coinsmove.StartCoinMove(hit.transform.position, () => {
+                    GameManager.instance.coins++;
+                });
+                Destroy(hit.transform.gameObject);
 
             }
         }

@@ -74,7 +74,7 @@ public class monkey : MonoBehaviour
         {
             velocidad = 190f;
         }
-        MovimientoPlayer();
+       // MovimientoPlayer();
 
 
         
@@ -82,9 +82,16 @@ public class monkey : MonoBehaviour
    public void atack()
     {
         MOKEY.SetBool("atack", true);
+        transform.localScale = new Vector3(-1.0F, 1.0f, 1.0f);
+    }
+    public void atack2()
+    {
+        transform.localScale = new Vector3(1.0F, 1.0f, 1.0f);
+        MOKEY.SetBool("atack", true);
     }
     public void stopAtack()
     {
+      
         MOKEY.SetBool("atack", false);
     }
     public void run()
@@ -147,7 +154,10 @@ public class monkey : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-
+        if (collision.gameObject.CompareTag("piso"))
+        {
+            MOKEY.SetBool("jump", false);
+        }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
