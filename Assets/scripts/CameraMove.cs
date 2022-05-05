@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraMove : MonoBehaviour
 {
     public GameObject target;
+    public ACTIVARMAPA ACTIVARMAPA;
     void Start()
     {
         
@@ -13,6 +14,10 @@ public class CameraMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position= new Vector3(target.transform.position.x, target.transform.position.y, transform.position.z);
+        if (ACTIVARMAPA.mapaa == false)
+        {
+            transform.position = new Vector3(target.transform.position.x, target.transform.position.y, transform.position.z);
+
+        }
     }
 }

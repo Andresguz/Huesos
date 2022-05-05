@@ -13,15 +13,17 @@ public class Swipe1 : MonoBehaviour
     {
         if (Input.touchCount > 0)
         {
+
             Touch touch = Input.GetTouch(0);
-            float swipeVertical = (new Vector3(0, touch.position.y, 0) - new Vector3(0, PosicionInicial.y, 0)).magnitude;
-            float swipeHorizontal = (new Vector3(touch.position.x, 0, 0) - new Vector3(PosicionInicial.x, 0, 0)).magnitude;
+            
             if (touch.phase == TouchPhase.Began)
             {
                 PosicionInicial = touch.position;
             }
             else if (touch.phase == TouchPhase.Ended)
             {
+                float swipeVertical = (new Vector3(0, touch.position.y, 0) - new Vector3(0, PosicionInicial.y, 0)).magnitude;
+                float swipeHorizontal = (new Vector3(touch.position.x, 0, 0) - new Vector3(PosicionInicial.x, 0, 0)).magnitude;
 
                 if (swipeVertical > SwipeMinY && swipeVertical > swipeHorizontal)
                 
@@ -38,8 +40,29 @@ public class Swipe1 : MonoBehaviour
                     if (u < 0)
                     {
                         print("Abajo");
-                        playerMono.jumpStop();
+                        //playerMono.jumpStop();
                         //Abajo
+                    }
+                  
+                }
+
+
+                if (swipeHorizontal > SwipeMinX && swipeHorizontal > swipeVertical)
+                {
+                    float u = Mathf.Sign(touch.position.x - PosicionInicial.x);
+                    if (u > 0)
+                    {
+                        print("Derecha");
+                        //Derecha
+                        playerMono.atack();
+                    }
+                    if (u < 0)
+                    {
+                        playerMono.transform.localScale = new Vector3(1F, 1, 1);
+                        print("Izquierda");
+                        playerMono.atack2();
+
+                        //Izquierda
                     }
                     //if (u == 0)
                     //{
@@ -49,29 +72,6 @@ public class Swipe1 : MonoBehaviour
                 }
             }
 
-            if (swipeHorizontal > SwipeMinX && swipeHorizontal > swipeVertical)
-            {
-                float u = Mathf.Sign(touch.position.x - PosicionInicial.x);
-                if (u > 0)
-                {
-                    print("Derecha");
-                    //Derecha
-                    playerMono.atack();
-                }
-                if (u < 0)
-                {
-                    playerMono.transform.localScale = new Vector3(1F, 1, 1);
-                    print("Izquierda");
-                    playerMono.atack2();
-                    
-                    //Izquierda
-                }
-                //if (u == 0)
-                //{
-                //    playerMono.stopAtack();
-                //    playerMono.jumpStop();
-                //}
-            }
         }
 
         if (Input.GetMouseButtonDown(0)) {
@@ -98,16 +98,14 @@ public class Swipe1 : MonoBehaviour
                 if (u < 0)
                 {
                     print("Abajo mouse");
-                    playerMono.jumpStop();
-                   // playerMono.stopAtack();
-                    //Abajo
+                
                 }
              
             }
             else
             {
-                
-                if (swipeHorizontal2 > SwipeMinX && swipeHorizontal2  > swipeVertical2)
+
+                if (swipeHorizontal2 > SwipeMinX && swipeHorizontal2 > swipeVertical2)
                 {
                     float u = Mathf.Sign(Input.mousePosition.x - PosicionInicial2.x);
 
