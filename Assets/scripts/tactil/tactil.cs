@@ -44,6 +44,7 @@ public class tactil : MonoBehaviour
                 Destroy(hit.transform.gameObject);
                 
             }
+            
         }
 
     }

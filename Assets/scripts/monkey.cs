@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class monkey : MonoBehaviour
 {
-   // 
+    // 
 
     [SerializeField]
-    float fuerzaSalto = 8.0f;
+    float fuerzaSalto;
     public Animator MOKEY;
     public bool dano = false;
     public bool llaveActiva = false;
@@ -17,7 +18,8 @@ public class monkey : MonoBehaviour
    
     Vector2 move;
     public float monedas = 0;
-    public coinsManager coins;
+    //public coinsManager coins;
+    public CoinCollection Coinsmove;
     // GameManager gameManager;
     public Inputs inputActions;
   
@@ -27,7 +29,7 @@ public class monkey : MonoBehaviour
     float direction = 0;
     bool isRuning = false;
     bool isJump;
- 
+    public Text vidaText;
     private void Awake()
     {
         rb=GetComponent<Rigidbody2D>();
@@ -40,6 +42,7 @@ public class monkey : MonoBehaviour
         inputActions.Player.Jump.canceled +=_=> jumpStop();   
         inputActions.Player.run.performed +=_=> run();
         inputActions.Player.run.canceled +=_=> runStop();
+        GameManager.instance.vidas = 3;
 
     }
     private void OnEnable()
@@ -61,20 +64,22 @@ public class monkey : MonoBehaviour
     void Start()
     {
         MOKEY = GetComponent<Animator>();
+        vidaText.text=GameManager.instance.vidas.ToString();
     }
  
    
     void Update()
     {
+        vidaText.text = GameManager.instance.vidas.ToString();
         if (isRuning == true)
         {
-            velocidad = 350f;
+            velocidad = 10;
         }
         else
         {
-            velocidad = 190f;
+            velocidad = 10;
         }
-       // MovimientoPlayer();
+     MovimientoPlayer();
 
 
         
@@ -117,20 +122,22 @@ public class monkey : MonoBehaviour
             // MOKEY.SetBool("atack", false);
             MOKEY.SetBool("run", true);
             transform.localScale = new Vector3(1F, 1, 1);
+            rb.velocity = new Vector2(direction * velocidad, rb.velocity.y);
         }
         else
         {
             MOKEY.SetBool("run", true);
             //   MOKEY.SetBool("atack", false);
             transform.localScale = new Vector3(-1F, 1, 1);
+            rb.velocity = new Vector2(direction * velocidad, rb.velocity.y);
         }
         if (direction == 0)
         {
             MOKEY.SetBool("run", false);
-     
+            rb.velocity = new Vector2(0, rb.velocity.y);
         }
       
-    rb.velocity = new Vector2(direction * velocidad * Time.deltaTime, rb.velocity.y) ;
+   
         
 
     }
@@ -158,16 +165,29 @@ public class monkey : MonoBehaviour
         {
             MOKEY.SetBool("jump", false);
         }
+       
+        if (collision.gameObject.CompareTag("enemigo") || collision.gameObject.CompareTag("trampa"))
+        {
+            // 
+            GameManager.instance.vidas--;
+          //  MOKEY.SetBool("jump", false);
+        }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //if (other.CompareTag("coin"))
-        //{
-        ////    coins.SartCoinMove(other.transform.position);
-        //   Destroy(other.gameObject);
-        //    GameManager.instance.coins++;
-        //   // monedas++;
-        //}
+        if (other.CompareTag("coin2"))
+        {
+
+            Coinsmove.StartCoinMove(other.transform.position, () => {
+                GameManager.instance.coins++;
+            });
+            Destroy(other.transform.gameObject);
+           
+        }
+        if (other.gameObject.CompareTag("cabeza"))
+        {
+            Destroy(other.gameObject);
+        }
 
     }
 }

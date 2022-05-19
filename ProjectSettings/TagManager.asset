@@ -12,6 +12,8 @@ TagManager:
   - cabeza
   - llave
   - next
+  - coin2
+  - water
   layers:
   - Default
   - TransparentFX
@@ -49,6 +51,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: New Layer
+  - name: fondo
     uniqueID: 2657464319
+    locked: 0
+  - name: mid
+    uniqueID: 1467022189
+    locked: 0
+  - name: obj
+    uniqueID: 2749410471
+    locked: 0
+  - name: rocas
+    uniqueID: 1999984885
+    locked: 0
+  - name: piso
+    uniqueID: 2674277065
+    locked: 0
+  - name: personaje
+    uniqueID: 4062214091
     locked: 0

@@ -16,6 +16,10 @@ public class CoinCollection : MonoBehaviour
             cam = Camera.main;
         } 
     }
+    private void Update()
+    {
+        
+    }
     public void StartCoinMove(Vector3 _intial,Action onComplete)
     {
         //Vector3 initialPos = cam.ScreenToViewportPoint(new Vector3(_intial.x, _intial.y, cam.transform.position.z*-1));
