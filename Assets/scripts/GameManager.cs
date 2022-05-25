@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        if (vidas==0)
+        if (vidas == 0)
         {
             SceneManager.LoadScene(0);
             coins = 0;

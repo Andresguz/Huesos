@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/HUESO.unity
+    path: Assets/Scenes/level1.unity
     guid: 5f1e31ea685c70f42950fbd88b54b0d9
+  - enabled: 1
+    path: Assets/Scenes/nivel2.unity
+    guid: 098af50b54743ab44b892bee9ff0f976
   m_configObjects: {}

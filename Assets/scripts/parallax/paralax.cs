@@ -14,7 +14,7 @@ public class paralax : MonoBehaviour
     {
         cameraTransform = Camera.main.transform;
         previusCameraPosition = cameraTransform.position;
-    spriteWidth=GetComponent<SpriteRenderer>().bounds.size.x;
+    //spriteWidth=GetComponent<SpriteRenderer>().bounds.size.x;
         starPosition = transform.position.x;
     }
 
@@ -22,19 +22,19 @@ public class paralax : MonoBehaviour
     void Update()
     {
         float deltaX= (cameraTransform.position.x - previusCameraPosition.x)* paralaxMultiple;
-     float amountPos=cameraTransform.position.x * (1-paralaxMultiple);
+     //float amountPos=cameraTransform.position.x * (1-paralaxMultiple);
         transform.Translate(new Vector3(deltaX, 0, 0));
         previusCameraPosition= cameraTransform.position;
 
-        if (amountPos>starPosition+spriteWidth)
-        {
-            transform.Translate(new Vector3(spriteWidth, 0, 0));
-            starPosition+=spriteWidth;
-        }
-        else if (amountPos<starPosition-spriteWidth)
-        {
-            transform.Translate(new Vector3(-spriteWidth, 0, 0));
-            starPosition -= spriteWidth;
-        }
+        //if (amountPos>starPosition+spriteWidth)
+        //{
+        //    transform.Translate(new Vector3(spriteWidth, 0, 0));
+        //    starPosition+=spriteWidth;
+        //}
+        //else if (amountPos<starPosition-spriteWidth)
+        //{
+        //    transform.Translate(new Vector3(-spriteWidth, 0, 0));
+        //    starPosition -= spriteWidth;
+        //}
     }
 }
