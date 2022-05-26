@@ -40,6 +40,15 @@
                     "processors": "",
                     "interactions": "Press(behavior=2)",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "shot",
+                    "type": "Button",
+                    "id": "6b1a9663-141a-446c-92bc-9d04ef8c5822",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -156,7 +165,7 @@
                 {
                     "name": "",
                     "id": "bd7bd60a-2665-4f52-a28c-c23b0e4858f4",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -172,6 +181,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bfd2fbc0-b6a2-44f6-873c-08e05274d8ed",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "shot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

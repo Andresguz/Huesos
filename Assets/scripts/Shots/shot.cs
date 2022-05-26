@@ -1,27 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//using UnityEngine.InputSystem;
 public class shot : MonoBehaviour
 {
     public float shootSpeed;
     public float shootTime;
-    private bool iSshooting;
+    public bool iSshooting;
     public Transform shotPos;
     public GameObject bullet;
+
+    //public Inputs inputActions;
+
     void Start()
     {
+
         iSshooting = false;
     }
-
-    // Update is called once per frame
     void Update()
     {
-       // if (Input.GetButton(KeyCode.R) && iSshooting)
+        if (Input.GetKeyDown(KeyCode.R)&&!iSshooting)
         {
             StartCoroutine(shott());
+            //iSshooting = true;
+           
+        }
+       
+
+     
+    }
+ 
+  public void shotButton()
+    {
+        if ( !iSshooting)
+        {
+            StartCoroutine(shott());
+            //iSshooting = true;
+
         }
     }
+
     IEnumerator shott()
     {
         int direction()
@@ -37,7 +55,7 @@ public class shot : MonoBehaviour
         };
 
         iSshooting=true;
-        GameObject newbullet=Instantiate(bullet,shotPos.position,Quaternion.identity);
+        GameObject newbullet=Instantiate(bullet,shotPos.position,shotPos.rotation);
         newbullet.GetComponent<Rigidbody2D>().velocity = new Vector2(shootSpeed*Time.fixedDeltaTime,0f);
         newbullet.transform.localScale = new Vector2(newbullet.transform.localScale.x *direction(),newbullet.transform.localScale.y);
         yield return new WaitForSeconds(shootTime);

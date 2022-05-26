@@ -121,14 +121,17 @@ public class monkey : MonoBehaviour
         {
             // MOKEY.SetBool("atack", false);
             MOKEY.SetBool("run", true);
-            transform.localScale = new Vector3(1F, 1, 1);
+          //  transform.localScale = new Vector3(1F, 1, 1);
+            transform.eulerAngles = new Vector3(0, 180, 0);
+ 
             rb.velocity = new Vector2(direction * velocidad, rb.velocity.y);
         }
         else
         {
             MOKEY.SetBool("run", true);
             //   MOKEY.SetBool("atack", false);
-            transform.localScale = new Vector3(-1F, 1, 1);
+            //transform.localScale = new Vector3(-1F, 1, 1);
+            transform.eulerAngles = new Vector3(0, 0, 0);
             rb.velocity = new Vector2(direction * velocidad, rb.velocity.y);
         }
         if (direction == 0)
@@ -181,7 +184,9 @@ public class monkey : MonoBehaviour
             Coinsmove.StartCoinMove(other.transform.position, () => {
                 GameManager.instance.coins++;
             });
-            Destroy(other.transform.gameObject);
+      //      Destroy(other.gameObject);
+           // Destroy(other.gameObject.GetComponent<Collider2D>());
+
            
         }
         if (other.gameObject.CompareTag("cabeza"))

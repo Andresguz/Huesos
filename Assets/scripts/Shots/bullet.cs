@@ -5,8 +5,9 @@ using UnityEngine;
 public class bullet : MonoBehaviour
 {
     public GameObject destruccion;
+    public GameObject target;
     public float velX;
-    public float velY;
+    public float velY=0;
     Rigidbody2D rb;
 
     void Start()
@@ -17,14 +18,16 @@ public class bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector2(velX, velY);
-
+        //rb.velocity = new Vector2(velX, velY);
+        rb.velocity = transform.right*velX;
+        Destroy(gameObject,5f);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("enemigo"))
+        if (collision.gameObject.CompareTag("enemigo")|| collision.gameObject.CompareTag("piso"))
         {
-            Destroy(gameObject);
+            Instantiate(destruccion,target.transform);
+            Destroy(gameObject,0.2f);
         }
     }
 }

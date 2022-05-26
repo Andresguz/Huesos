@@ -528,11 +528,12 @@ GameObject:
   - component: {fileID: 3828702012817317349}
   - component: {fileID: 3828702012817317348}
   - component: {fileID: 3828702012817317346}
-  - component: {fileID: 6996767115839326908}
   - component: {fileID: 3828702012817317345}
   - component: {fileID: 3828702012817317347}
   - component: {fileID: 166651669}
   - component: {fileID: 166651674}
+  - component: {fileID: 624440517}
+  - component: {fileID: 624440518}
   m_Layer: 0
   m_Name: Hombre_Nieves
   m_TagString: Player
@@ -620,7 +621,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 4
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1235da46064aba645b30ce240c0bfde7, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -646,22 +647,6 @@ MonoBehaviour:
     showGizmo: 1
   - color: {r: 0, g: 1, b: 0, a: 1}
     showGizmo: 1
---- !u!114 &6996767115839326908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3828702012817317351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f08e8618237c6340acff1277385da4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shootSpeed: 3
-  shootTime: 1
-  shotPos: {fileID: 1214359629122187766}
-  bullet: {fileID: 5022604698393919044, guid: c7b1fefaa004fc948b1204e210677bfe, type: 3}
 --- !u!114 &3828702012817317345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -683,7 +668,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3828702012817317351}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 1235da46064aba645b30ce240c0bfde7, type: 2}
   m_IsTrigger: 0
@@ -730,6 +715,53 @@ MonoBehaviour:
   SwipeMinY: 0
   SwipeMinX: 0
   playerMono: {fileID: 3828702012817317349}
+--- !u!70 &624440517
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3828702012817317351}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.27405357, y: 2.0356483}
+  m_Size: {x: 1.4955416, y: 4.019826}
+  m_Direction: 0
+--- !u!114 &624440518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3828702012817317351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: abfb3703d9c5cde4698f3eaac7d1d04e,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &3956716766945606638
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,6 +1092,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9010537171445671506}
   - component: {fileID: 769296084139594378}
+  - component: {fileID: 8133479825454204817}
   - component: {fileID: 7170429628976105182}
   - component: {fileID: 6709549370519830804}
   - component: {fileID: 6709549370519830805}
@@ -1136,6 +1169,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8133479825454204817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6709549370519830806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f08e8618237c6340acff1277385da4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootSpeed: 0.4
+  shootTime: 0.4
+  iSshooting: 0
+  shotPos: {fileID: 1214359629122187766}
+  bullet: {fileID: 5022604698393919044, guid: c7b1fefaa004fc948b1204e210677bfe, type: 3}
 --- !u!114 &7170429628976105182
 MonoBehaviour:
   m_ObjectHideFlags: 0

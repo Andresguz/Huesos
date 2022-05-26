@@ -11,10 +11,10 @@ public class MOVEMENT : MonoBehaviour
     public Animator megaman;
     public bool dano = false;
     public bool llaveActiva = false;
-    public GameObject puerta;
+   // public GameObject puerta;
     void Start()
     {
-        puerta.SetActive(false);
+      //  puerta.SetActive(false);
 
         megaman = GetComponent<Animator>();
     }
@@ -71,12 +71,7 @@ public class MOVEMENT : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
-        if (other.gameObject.tag =="llave")
-        {
-            llaveActiva = true;
-            Destroy(other.gameObject);
-            puerta.SetActive(true);
-        }
+       
 
     }
 

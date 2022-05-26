@@ -62,6 +62,15 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=2)"",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""shot"",
+                    ""type"": ""Button"",
+                    ""id"": ""6b1a9663-141a-446c-92bc-9d04ef8c5822"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -178,7 +187,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""bd7bd60a-2665-4f52-a28c-c23b0e4858f4"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -196,6 +205,17 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""action"": ""run"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bfd2fbc0-b6a2-44f6-873c-08e05274d8ed"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""shot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -208,6 +228,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         m_Player_move = m_Player.FindAction("move", throwIfNotFound: true);
         m_Player_atack = m_Player.FindAction("atack", throwIfNotFound: true);
         m_Player_run = m_Player.FindAction("run", throwIfNotFound: true);
+        m_Player_shot = m_Player.FindAction("shot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -271,6 +292,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_move;
     private readonly InputAction m_Player_atack;
     private readonly InputAction m_Player_run;
+    private readonly InputAction m_Player_shot;
     public struct PlayerActions
     {
         private @Inputs m_Wrapper;
@@ -279,6 +301,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         public InputAction @move => m_Wrapper.m_Player_move;
         public InputAction @atack => m_Wrapper.m_Player_atack;
         public InputAction @run => m_Wrapper.m_Player_run;
+        public InputAction @shot => m_Wrapper.m_Player_shot;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -300,6 +323,9 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @run.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRun;
                 @run.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRun;
                 @run.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRun;
+                @shot.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShot;
+                @shot.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShot;
+                @shot.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShot;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -316,6 +342,9 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @run.started += instance.OnRun;
                 @run.performed += instance.OnRun;
                 @run.canceled += instance.OnRun;
+                @shot.started += instance.OnShot;
+                @shot.performed += instance.OnShot;
+                @shot.canceled += instance.OnShot;
             }
         }
     }
@@ -326,5 +355,6 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnAtack(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
+        void OnShot(InputAction.CallbackContext context);
     }
 }
