@@ -44,7 +44,7 @@ public class shot : MonoBehaviour
     {
         int direction()
         {
-            if (transform.localScale.x<0f)
+            if (transform.localScale.x < 0f)
             {
                 return -1;
             }
@@ -54,7 +54,7 @@ public class shot : MonoBehaviour
             }
         };
 
-        iSshooting=true;
+        iSshooting =true;
         GameObject newbullet=Instantiate(bullet,shotPos.position,shotPos.rotation);
         newbullet.GetComponent<Rigidbody2D>().velocity = new Vector2(shootSpeed*Time.fixedDeltaTime,0f);
         newbullet.transform.localScale = new Vector2(newbullet.transform.localScale.x *direction(),newbullet.transform.localScale.y);

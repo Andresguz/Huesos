@@ -73,11 +73,11 @@ public class monkey : MonoBehaviour
         vidaText.text = GameManager.instance.vidas.ToString();
         if (isRuning == true)
         {
-            velocidad = 10;
+            velocidad = 20;
         }
         else
         {
-            velocidad = 10;
+            velocidad = 20;
         }
      MovimientoPlayer();
 

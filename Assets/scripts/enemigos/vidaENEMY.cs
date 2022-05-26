@@ -9,7 +9,7 @@ public class vidaENEMY : MonoBehaviour
     public destroyEnemy enemy;
     private void Start()
     {
-        slider = GetComponent<Slider>();
+
     }
     private void Update()
     {
