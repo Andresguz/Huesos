@@ -73,11 +73,11 @@ public class monkey : MonoBehaviour
         vidaText.text = GameManager.instance.vidas.ToString();
         if (isRuning == true)
         {
-            velocidad = 20;
+            velocidad = 10;
         }
         else
         {
-            velocidad = 20;
+            velocidad = 10;
         }
      MovimientoPlayer();
 
@@ -116,7 +116,7 @@ public class monkey : MonoBehaviour
         {
             MOKEY.SetBool("run", true);
         }
-
+        rb.velocity = new Vector2(direction * velocidad, rb.velocity.y);
         if (direction < 0)
         {
             // MOKEY.SetBool("atack", false);
@@ -124,15 +124,15 @@ public class monkey : MonoBehaviour
           //  transform.localScale = new Vector3(1F, 1, 1);
             transform.eulerAngles = new Vector3(0, 180, 0);
  
-            rb.velocity = new Vector2(direction * velocidad, rb.velocity.y);
+           
         }
-        else
+      if(direction > 0)
         {
             MOKEY.SetBool("run", true);
             //   MOKEY.SetBool("atack", false);
             //transform.localScale = new Vector3(-1F, 1, 1);
             transform.eulerAngles = new Vector3(0, 0, 0);
-            rb.velocity = new Vector2(direction * velocidad, rb.velocity.y);
+        //    rb.velocity = new Vector2(direction * velocidad, rb.velocity.y);
         }
         if (direction == 0)
         {

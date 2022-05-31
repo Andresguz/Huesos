@@ -30,7 +30,9 @@ public class CoinCollection : MonoBehaviour
     }
    IEnumerator MoveCoin(Transform obj, Vector3 starPosition,Vector3 endPos, Action onComplete)
     {
+
         float time = 0;
+
         while (time < 1)
         {
             time += speed *Time.deltaTime;

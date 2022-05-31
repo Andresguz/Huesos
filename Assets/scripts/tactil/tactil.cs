@@ -36,14 +36,24 @@ public class tactil : MonoBehaviour
             Vector2 test = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit;
             hit = Physics2D.Raycast(test, Vector2.zero);
-            if (hit.collider.CompareTag("coin"))
+
+            try
             {
-                Coinsmove.StartCoinMove(hit.transform.position, () => {
-                    GameManager.instance.coins++;
-                });
-                Destroy(hit.transform.gameObject);
-                
+               
             }
+            catch (System.Exception)
+            {
+                if (hit.collider.CompareTag("coin"))
+                {
+                    Coinsmove.StartCoinMove(hit.transform.position, () => {
+                        GameManager.instance.coins++;
+                    });
+                    Destroy(hit.transform.gameObject);
+
+                }
+                throw;
+            }
+            
             
         }
 
