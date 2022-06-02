@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &535670913409280806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6489538142704378236}
+  m_Layer: 0
+  m_Name: posShitt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6489538142704378236
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535670913409280806}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.438, y: 0.305, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6716417771416246359}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6716417770756150894
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,6 +245,7 @@ GameObject:
   - component: {fileID: 6716417771416246359}
   - component: {fileID: 6716417771416246358}
   - component: {fileID: 6716417771416246357}
+  - component: {fileID: 9017227269198693256}
   - component: {fileID: 6716417771416246353}
   - component: {fileID: 6716417771416246352}
   m_Layer: 0
@@ -236,6 +267,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 6716417771330805809}
+  - {fileID: 6489538142704378236}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -310,6 +342,26 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &9017227269198693256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6716417771416246356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f0b8252deeaaf4797c58f530ca088f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerpPos: {fileID: 0}
+  speed: 6
+  distanceFreno: 8
+  distanceRetraso: 6
+  tiempo: 0
+  PosShot: {fileID: 6489538142704378236}
+  bulletEnemy: {fileID: 5686778636911424624, guid: e956f2738cf2a9d4b8755e42009bc6e6,
+    type: 3}
 --- !u!58 &6716417771416246353
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -15,6 +15,8 @@ public class Melee : MonoBehaviour
     private float contCooldown=5f;
     private float cont;
     private bool activo;
+
+    public GameObject vfxHit;
     private void Start()
     {
         activo = false;
@@ -39,6 +41,10 @@ public class Melee : MonoBehaviour
         }
 
     }
+    public void StopMelee()
+    {
+        animator.SetBool("iddle",true);
+    }
    public void CoolDown()
     {
         if (activo==false && cont ==0)
@@ -57,8 +63,9 @@ public class Melee : MonoBehaviour
         {
             if (colisionador.CompareTag("enemigo"))
             {
+                Instantiate(vfxHit,controlGolpe.transform);
                 destroyEnemy enemy = colisionador.transform.GetComponent<destroyEnemy>();
-                enemy.vida -= 20;
+                enemy.vida -= 40;
             }
         }
     }

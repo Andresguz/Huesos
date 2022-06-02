@@ -224,7 +224,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521503364949125599}
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.641, y: 6.0957, z: 0.11512135}
+  m_LocalPosition: {x: -1.43, y: 6.0957, z: 0.11512135}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2602807522226649584}
@@ -237,7 +237,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521503364949125599}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -267,20 +267,20 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1462280091
-  m_SortingLayer: 7
+  m_SortingLayerID: -232753205
+  m_SortingLayer: 6
   m_SortingOrder: 10
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.1
+    widthMultiplier: 0.5
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
+        time: 0.9308853
         value: 1
         inSlope: 0
         outSlope: 0
@@ -457,7 +457,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1962727681817489167}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.9, y: 2.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2602807522226649584}
@@ -694,6 +694,7 @@ GameObject:
   - component: {fileID: 166651674}
   - component: {fileID: 624440517}
   - component: {fileID: 624440518}
+  - component: {fileID: 1687220559}
   m_Layer: 0
   m_Name: Hombre_Nieves
   m_TagString: Player
@@ -940,6 +941,22 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1687220559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3828702012817317351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb3b2bdec5a05b24483583d925a794d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlGolpe: {fileID: 5119609265667142768}
+  radioGolpe: 2
+  damage: 30
+  animator: {fileID: 3828702012817317350}
 --- !u!1 &3956716766945606638
 GameObject:
   m_ObjectHideFlags: 0
@@ -1362,7 +1379,7 @@ MonoBehaviour:
   shootSpeed: 0.4
   shootTime: 0.4
   iSshooting: 0
-  shotPos: {fileID: 5119609265667142768}
+  shotPos: {fileID: 1214359629122187766}
   bullet: {fileID: 5022604698393919044, guid: c7b1fefaa004fc948b1204e210677bfe, type: 3}
 --- !u!114 &7170429628976105182
 MonoBehaviour:

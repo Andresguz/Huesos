@@ -14,6 +14,8 @@ TagManager:
   - next
   - coin2
   - water
+  - bullet
+  - cohete
   layers:
   - Default
   - TransparentFX

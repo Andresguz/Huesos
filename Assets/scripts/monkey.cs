@@ -169,7 +169,8 @@ public class monkey : MonoBehaviour
             MOKEY.SetBool("jump", false);
         }
        
-        if (collision.gameObject.CompareTag("enemigo") || collision.gameObject.CompareTag("trampa"))
+        if (collision.gameObject.CompareTag("enemigo") || collision.gameObject.CompareTag("trampa")||
+            collision.gameObject.CompareTag("cohete"))
         {
             // 
             GameManager.instance.vidas--;

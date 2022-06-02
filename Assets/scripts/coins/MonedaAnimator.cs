@@ -11,10 +11,7 @@ public class MonedaAnimator : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Destroy(gameObject);
-            //Destroy(gameObject.GetComponent<Collider2D>());
-          // GetComponent<SpriteRenderer>().enabled = false;
-           // Debug.Log("pp");
-        //    animator.SetBool("coin", true);
+        
         }
     }
 }
