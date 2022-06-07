@@ -32,16 +32,18 @@ public class bulletEnemy : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-    //    if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("piso"))
-    //    {
-    //        Instantiate(destruccion, collision.transform);
-    //        Destroy(gameObject, 0.2f);
-    //    }
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("piso"))
+        {
+            Instantiate(destruccion, collision.transform);
+            GameManager.instance.vidas--;
+            Destroy(gameObject, 0.2f);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("piso"))
         {
+            GameManager.instance.vidas--;
             Instantiate(destruccion, pointl.transform);
             Destroy(gameObject, 0.2f);
         }
