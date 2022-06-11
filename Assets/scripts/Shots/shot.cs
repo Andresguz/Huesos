@@ -9,12 +9,12 @@ public class shot : MonoBehaviour
     public bool iSshooting;
     public Transform shotPos;
     public GameObject bullet;
-
+    public Animator anim;
     //public Inputs inputActions;
 
     void Start()
     {
-
+        //anim = GetComponent<Animator>();
         iSshooting = false;
     }
     void Update()
@@ -53,7 +53,7 @@ public class shot : MonoBehaviour
                 return +1;
             }
         };
-
+        anim.SetTrigger("shot");
         iSshooting =true;
         GameObject newbullet=Instantiate(bullet,shotPos.position,shotPos.rotation);
         newbullet.GetComponent<Rigidbody2D>().velocity = new Vector2(shootSpeed*Time.fixedDeltaTime,0f);

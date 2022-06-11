@@ -7,7 +7,7 @@ public class changeScene : MonoBehaviour
     public int scene;
    public void cambioEscena()
     {
-        SceneManager.LoadScene(scene);
+        //SceneManager.LoadScene(scene);
     }
     private void Update()
     {

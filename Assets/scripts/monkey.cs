@@ -11,12 +11,13 @@ public class monkey : MonoBehaviour
 
     [SerializeField]
     float fuerzaSalto;
+
     public Animator MOKEY;
     public bool dano = false;
-    public bool llaveActiva = false;
-    float x = 1;
+   // public bool llaveActiva = false;
+   // float x = 1;
    
-    Vector2 move;
+   // Vector2 move;
     public float monedas = 0;
     //public coinsManager coins;
     public CoinCollection Coinsmove;
@@ -32,7 +33,7 @@ public class monkey : MonoBehaviour
     public Text vidaText;
     private void Awake()
     {
-        rb=GetComponent<Rigidbody2D>();
+       // rb=GetComponent<Rigidbody2D>();
         inputActions = new Inputs();
         inputActions.Enable();
         inputActions.Player.move.performed += ctx => { direction = ctx.ReadValue<float>(); };
@@ -47,23 +48,19 @@ public class monkey : MonoBehaviour
     }
     private void OnEnable()
     {
-        inputActions.Enable();
-      //  inputActions.Player.atack.started += DoAtack;
-      
+        inputActions.Enable(); 
         inputActions.Player.Enable();
     }
     private void OnDisable()
     {
         inputActions.Disable();
-  
- 
         inputActions.Player.Disable();
     }
 
 
     void Start()
     {
-        MOKEY = GetComponent<Animator>();
+      //  MOKEY = GetComponent<Animator>();
         vidaText.text=GameManager.instance.vidas.ToString();
     }
  
@@ -119,20 +116,15 @@ public class monkey : MonoBehaviour
         rb.velocity = new Vector2(direction * velocidad, rb.velocity.y);
         if (direction < 0)
         {
-            // MOKEY.SetBool("atack", false);
             MOKEY.SetBool("run", true);
-          //  transform.localScale = new Vector3(1F, 1, 1);
             transform.eulerAngles = new Vector3(0, 180, 0);
  
            
         }
       if(direction > 0)
         {
-            MOKEY.SetBool("run", true);
-            //   MOKEY.SetBool("atack", false);
-            //transform.localScale = new Vector3(-1F, 1, 1);
+            MOKEY.SetBool("run", true);          
             transform.eulerAngles = new Vector3(0, 0, 0);
-        //    rb.velocity = new Vector2(direction * velocidad, rb.velocity.y);
         }
         if (direction == 0)
         {
@@ -155,7 +147,7 @@ public class monkey : MonoBehaviour
       if (Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.y) < 0.01f)
         {
            
-            MOKEY.SetBool("atack", false);
+            MOKEY.SetBool("shot", false);
             MOKEY.SetBool("jump", true);
             gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
         
