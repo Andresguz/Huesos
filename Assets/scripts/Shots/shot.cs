@@ -11,10 +11,11 @@ public class shot : MonoBehaviour
     public GameObject bullet;
     public Animator anim;
     //public Inputs inputActions;
-
+   public AudioSource audioSource;
+    public AudioClip disparoS;
     void Start()
     {
-        //anim = GetComponent<Animator>();
+       // audioSource = GetComponent<AudioSource>();
         iSshooting = false;
     }
     void Update()
@@ -22,8 +23,7 @@ public class shot : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R)&&!iSshooting)
         {
             StartCoroutine(shott());
-            //iSshooting = true;
-           
+         
         }
        
 
@@ -34,6 +34,7 @@ public class shot : MonoBehaviour
     {
         if ( !iSshooting)
         {
+            audioSource.PlayOneShot(disparoS);
             StartCoroutine(shott());
             //iSshooting = true;
 

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class monedas : MonoBehaviour
 {
     public Text contCoin;
-   public monkey monkey;
+  
     private void Start()
     {
         

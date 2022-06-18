@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8917244140470103345}
   m_Layer: 0
   m_Name: coinn (1)
-  m_TagString: coin
+  m_TagString: coin2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8917244140470103344}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.562, y: 1.8339784, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -71,9 +71,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1620690231
+  m_SortingLayer: 5
+  m_SortingOrder: 1
   m_Sprite: {fileID: 2719408719243487550, guid: db1640e8af32c0f46b9439f12a4c4298,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

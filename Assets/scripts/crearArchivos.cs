@@ -10,11 +10,11 @@ public class crearArchivos : MonoBehaviour
 
     void Start()
     {
-        direccion = @"C:\User\" + Environment.UserName + @"\Documents\MegaMan\Save";
+        direccion = @"C:\User\" + Environment.UserName + @"\Documents\ClayBallD\Save";
         if (Directory.Exists(direccion)==false)
         {
             DirectoryInfo di = Directory.CreateDirectory(direccion);
-            archivo = new StreamWriter(@"C:\User\" + Environment.UserName + @"\Documents\MegaMan\Save\save.txt");
+            archivo = new StreamWriter(@"C:\User\" + Environment.UserName + @"\Documents\ClayBallD\Save\save.txt");
             archivo.WriteLine(1);//nivel
             archivo.WriteLine(0);//monedas
             archivo.WriteLine(3);//vidas

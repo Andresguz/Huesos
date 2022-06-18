@@ -8,7 +8,7 @@ public class PanZoom : MonoBehaviour
 {
     Vector3 touchStart;
     public float zoomOutMin = 1;
-    public float zoomOutMax = 8;
+    public float zoomOutMax = 5;
     public Text screenl;
 
     // Update is called once per frame
@@ -32,11 +32,11 @@ public class PanZoom : MonoBehaviour
             float difference = currentMagnitude - prevMagnitude;
             if (difference > 0)
             {
-                screenl.text = "ZOOM";
+              //  screenl.text = "ZOOM";
                 print("zoom");
             }
             else {
-                screenl.text = "ACHICAR";
+              //  screenl.text = "ACHICAR";
                 print("accion2");
             }
             zoom(difference * 0.01f);

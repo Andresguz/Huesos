@@ -10,9 +10,11 @@ public class caida : MonoBehaviour
     {
         if (collision.gameObject.tag =="Player")
         {
-            SceneManager.LoadScene(scene);
-            GameManager.instance.coins = 0;
-            GameManager.instance.vidas--;
+             GameManager.instance.coins = 0;
+            //GameManager.instance.vidas--;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+           
+            
         }
     }
 }

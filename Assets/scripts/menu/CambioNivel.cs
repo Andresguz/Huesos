@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public static class CambioNivel 
+public  class CambioNivel 
 {
-    public static string siguienteLevel;
-    public static void NivelCarga(string nombre)
+    public  int siguienteLevel;
+    public  void NivelCarga(int i)
     {
-        siguienteLevel = nombre;
-        SceneManager.LoadScene("Carga"); 
+      //  siguienteLevel = i;
+        SceneManager.LoadScene(1); 
     }
 
 }

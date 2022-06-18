@@ -10,7 +10,7 @@ public class MonedaAnimator : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Destroy(gameObject);
+           // Destroy(gameObject);
         
         }
     }

@@ -12,32 +12,39 @@ public class cargando : MonoBehaviour
    // public GameObject buttonS;
     private void Start()
     {
-        string nivelCargar = CambioNivel.siguienteLevel;
-        StartCoroutine(IniciarCarga(nivelCargar));
+       // int nivelCargar = CambioNivel.siguienteLevel;
+       // StartCoroutine(IniciarCarga(nivelCargar));
     }
     private void Update()
     {
         slider.value = v;
         v += 0.01f;
-    }
-    IEnumerator IniciarCarga(string nivel)
-    {
-        
-        yield return new WaitForSeconds(1f);
-        AsyncOperation opercion = SceneManager.LoadSceneAsync(nivel);
-        opercion.allowSceneActivation = false;
-
-        while (!opercion.isDone)
+        if (v>1)
         {
-            if (opercion.progress >= 0.9f)
-            {
-                texto.text = "Presiona la Pantalla para continuar";
-                if (Input.anyKey)
-                {
-                    opercion.allowSceneActivation = true;
-                }
-            }
-            yield return null;
+
+            PlayerPrefs.SetInt("nivelX", 1);
+            SceneManager.LoadScene("level1");
         }
     }
+   
+    //IEnumerator IniciarCarga(int nivel)
+    //{
+        
+    //    yield return new WaitForSeconds(1f);
+    //    AsyncOperation opercion = SceneManager.LoadSceneAsync(nivel);
+    //    opercion.allowSceneActivation = false;
+
+    //    while (!opercion.isDone)
+    //    {
+    //        if (opercion.progress >= 0.9f)
+    //        {
+    //            texto.text = "Presiona la Pantalla para continuar";
+    //            if (Input.anyKey)
+    //            {
+    //                opercion.allowSceneActivation = true;
+    //            }
+    //        }
+    //        yield return null;
+    //    }
+    //}
 }

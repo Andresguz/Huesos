@@ -131,7 +131,7 @@ MonoBehaviour:
   ACTIVARMAPA: {fileID: 0}
   target: {fileID: 0}
   speed: 5
-  pCamera: {x: 0, y: 5, z: -10}
+  pCamera: {x: 0, y: 0, z: -10}
 --- !u!20 &6957335885052779712
 Camera:
   m_ObjectHideFlags: 0
@@ -159,7 +159,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 11.28
+  orthographic size: 11
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

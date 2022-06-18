@@ -40,7 +40,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5022604698393919048}
   - component: {fileID: 5022604698393919051}
-  - component: {fileID: 5022604698393919050}
   - component: {fileID: 5022604698393919045}
   - component: {fileID: 5022604698393919054}
   - component: {fileID: 5022604698393919049}
@@ -59,8 +58,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5022604698393919044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.05, y: -2.05, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.1917, y: 0.0828, z: 0}
+  m_LocalScale: {x: 0.6552, y: 0.43822646, z: 1}
   m_Children:
   - {fileID: 8833885344736666228}
   m_Father: {fileID: 0}
@@ -106,7 +105,7 @@ SpriteRenderer:
   m_SortingLayerID: -232753205
   m_SortingLayer: 6
   m_SortingOrder: 5
-  m_Sprite: {fileID: -4049746464425172676, guid: 2ced118e1eb95d7478c20752659f0737,
+  m_Sprite: {fileID: 6695496281850455261, guid: 724671c93f32cfe4a9f0e768c4949f85,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -118,25 +117,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &5022604698393919050
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5022604698393919044}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1a3dfa5dc0bf3684381f65d956b0804f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &5022604698393919045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +168,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.07465436, y: 0.030000055}
   serializedVersion: 2
-  m_Radius: 0.64
+  m_Radius: 1.0887558

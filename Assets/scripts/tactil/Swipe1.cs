@@ -9,6 +9,11 @@ public class Swipe1 : MonoBehaviour
     public float SwipeMinY; //0.5
     public float SwipeMinX; //0.5
     public monkey playerMono;
+ 
+    private void Awake()
+    {
+      
+    }
     void Update()
     {
         if (Input.touchCount > 0)
@@ -33,13 +38,13 @@ public class Swipe1 : MonoBehaviour
                     float u = Mathf.Sign(touch.position.y -PosicionInicial.y);
                     if (u > 0)
                     {
-                        print("Arriba");//Arriba
+                       // print("Arriba");//Arriba
                         playerMono.jump();
                     }
                  
                     if (u < 0)
                     {
-                        print("Abajo");
+                      //  print("Abajo");
                         //playerMono.jumpStop();
                         //Abajo
                     }
@@ -47,29 +52,29 @@ public class Swipe1 : MonoBehaviour
                 }
 
 
-                if (swipeHorizontal > SwipeMinX && swipeHorizontal > swipeVertical)
-                {
-                    float u = Mathf.Sign(touch.position.x - PosicionInicial.x);
-                    if (u > 0)
-                    {
-                        print("Derecha");
-                        //Derecha
-                        playerMono.atack();
-                    }
-                    if (u < 0)
-                    {
-                        playerMono.transform.localScale = new Vector3(1F, 1, 1);
-                        print("Izquierda");
-                        playerMono.atack2();
+                //if (swipeHorizontal > SwipeMinX && swipeHorizontal > swipeVertical)
+                //{
+                //    float u = Mathf.Sign(touch.position.x - PosicionInicial.x);
+                //    if (u > 0)
+                //    {
+                //        print("Derecha");
+                //        //Derecha
+                //        playerMono.atack();
+                //    }
+                //    if (u < 0)
+                //    {
+                //        playerMono.transform.localScale = new Vector3(1F, 1, 1);
+                //        print("Izquierda");
+                //        playerMono.atack2();
 
-                        //Izquierda
-                    }
-                    //if (u == 0)
-                    //{
-                    //    playerMono.stopAtack();
-                    //    playerMono.jumpStop();
-                    //}
-                }
+                //        //Izquierda
+                //    }
+                //    //if (u == 0)
+                //    //{
+                //    //    playerMono.stopAtack();
+                //    //    playerMono.jumpStop();
+                //    //}
+                //}
             }
 
         }
@@ -102,31 +107,31 @@ public class Swipe1 : MonoBehaviour
                 }
              
             }
-            else
-            {
+            //else
+            //{
 
-                if (swipeHorizontal2 > SwipeMinX && swipeHorizontal2 > swipeVertical2)
-                {
-                    float u = Mathf.Sign(Input.mousePosition.x - PosicionInicial2.x);
+            //    if (swipeHorizontal2 > SwipeMinX && swipeHorizontal2 > swipeVertical2)
+            //    {
+            //        float u = Mathf.Sign(Input.mousePosition.x - PosicionInicial2.x);
 
-                    if (u > 0)
-                    {
-                        print("Derecha mouse");
-                        playerMono.atack();
-                        //Derecha
-                    }
-                    if (u < 0)
-                    {
-                        print("Izquierda mouse");
-                        playerMono.atack2();
+            //        if (u > 0)
+            //        {
+            //            print("Derecha mouse");
+            //            playerMono.atack();
+            //            //Derecha
+            //        }
+            //        if (u < 0)
+            //        {
+            //            print("Izquierda mouse");
+            //            playerMono.atack2();
                        
-                        // playerMono.stopAtack();
-                        //Izquierda
-                    }
+            //            // playerMono.stopAtack();
+            //            //Izquierda
+            //        }
                   
-                }
+            //    }
 
-            }
+            //}
             
         }
 

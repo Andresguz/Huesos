@@ -358,10 +358,6 @@ MonoBehaviour:
   speed: 6
   distanceFreno: 8
   distanceRetraso: 6
-  tiempo: 0
-  PosShot: {fileID: 6489538142704378236}
-  bulletEnemy: {fileID: 5686778636911424624, guid: e956f2738cf2a9d4b8755e42009bc6e6,
-    type: 3}
 --- !u!58 &6716417771416246353
 CircleCollider2D:
   m_ObjectHideFlags: 0

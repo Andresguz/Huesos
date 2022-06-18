@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Pausa : MonoBehaviour
 {
-    [SerializeField] private GameObject botonPause;
-    [SerializeField] private GameObject Menu;
+   public GameObject botonPause;
+   public  GameObject Menu;
+
    public void PausaGame()
     {
         Time.timeScale = 0f;

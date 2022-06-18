@@ -6,9 +6,12 @@ public class tactil : MonoBehaviour
 {
     public Touch Toque;
     public CoinCollection Coinsmove;
+    AudioSource audioS;
+    public AudioClip money;
     void Start()
     {
-        
+        audioS = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -20,8 +23,10 @@ public class tactil : MonoBehaviour
             Vector2 test = Camera.main.ScreenToWorldPoint(Toque.position);
             RaycastHit2D hit;
             hit=Physics2D.Raycast(test,Vector2.zero);
-            if (hit.collider.CompareTag("coin"))
+
+            if (hit.collider.CompareTag("coin2"))
             {
+                audioS.PlayOneShot(money);
                 Coinsmove.StartCoinMove(hit.transform.position, () => {
                     GameManager.instance.coins++;
                 });
@@ -37,21 +42,23 @@ public class tactil : MonoBehaviour
             RaycastHit2D hit;
             hit = Physics2D.Raycast(test, Vector2.zero);
 
-            try
+          //  try
             {
                
             }
-            catch (System.Exception)
+          //  catch (System.Exception)
             {
-                if (hit.collider.CompareTag("coin"))
+                if (hit.collider.CompareTag("coin2"))
                 {
+                    audioS.PlayOneShot(money);
+
                     Coinsmove.StartCoinMove(hit.transform.position, () => {
                         GameManager.instance.coins++;
                     });
                     Destroy(hit.transform.gameObject);
 
                 }
-                throw;
+               // throw;
             }
             
             

@@ -8,41 +8,44 @@ using UnityEngine.UI;
 public class monkey : MonoBehaviour
 {
     // 
+     AudioSource audioSource;
+    public AudioClip salto;
+    public AudioClip damage;
+    public AudioClip monedasS;
+    public AudioClip vidasS;
 
     [SerializeField]
     float fuerzaSalto;
 
     public Animator MOKEY;
     public bool dano = false;
-   // public bool llaveActiva = false;
-   // float x = 1;
-   
-   // Vector2 move;
-    public float monedas = 0;
-    //public coinsManager coins;
+
     public CoinCollection Coinsmove;
     // GameManager gameManager;
     public Inputs inputActions;
   
     public Rigidbody2D rb;
-
+    [SerializeField]
   public  float velocidad;
-    float direction = 0;
+public float direction = 0;
     bool isRuning = false;
     bool isJump;
     public Text vidaText;
+
+    public GameObject gameover1;
     private void Awake()
     {
        // rb=GetComponent<Rigidbody2D>();
+       gameover1.SetActive(false);
+       audioSource = GetComponent<AudioSource>();
         inputActions = new Inputs();
         inputActions.Enable();
         inputActions.Player.move.performed += ctx => { direction = ctx.ReadValue<float>(); };
-        inputActions.Player.atack.performed += _ => atack();
+       // inputActions.Player.atack.performed += _ => atack();
         inputActions.Player.atack.canceled += _ => stopAtack();
         inputActions.Player.Jump.performed +=_=> jump();
         inputActions.Player.Jump.canceled +=_=> jumpStop();   
-        inputActions.Player.run.performed +=_=> run();
-        inputActions.Player.run.canceled +=_=> runStop();
+
         GameManager.instance.vidas = 3;
 
     }
@@ -68,45 +71,23 @@ public class monkey : MonoBehaviour
     void Update()
     {
         vidaText.text = GameManager.instance.vidas.ToString();
-        if (isRuning == true)
+        if (GameManager.instance.vidas==0)
         {
-            velocidad = 10;
-        }
-        else
-        {
-            velocidad = 10;
+            MOKEY.SetBool("dead",true);
+         gameover1.SetActive(true);   
         }
      MovimientoPlayer();
 
 
         
     }
-   public void atack()
-    {
-        MOKEY.SetBool("atack", true);
-        transform.localScale = new Vector3(-1.0F, 1.0f, 1.0f);
-    }
-    public void atack2()
-    {
-        transform.localScale = new Vector3(1.0F, 1.0f, 1.0f);
-        MOKEY.SetBool("atack", true);
-    }
+ 
     public void stopAtack()
     {
       
         MOKEY.SetBool("atack", false);
     }
-    public void run()
-    {
-        //MOKEY.SetTrigger("corr");
-        MOKEY.SetBool("corre", true);
-        isRuning = true;
-    }
-    public void runStop()
-    {
-        MOKEY.SetBool("corre", false);
-        isRuning =false;
-    }
+ 
     public void MovimientoPlayer()
     {
         if (isJump==false)
@@ -131,11 +112,8 @@ public class monkey : MonoBehaviour
             MOKEY.SetBool("run", false);
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
-      
-   
-        
-
     }
+
   public  void jumpStop()
     {
         isJump=false;
@@ -143,10 +121,11 @@ public class monkey : MonoBehaviour
     }
    public void jump()
     {
+
         isJump=true;
       if (Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.y) < 0.01f)
         {
-           
+            audioSource.PlayOneShot(salto);
             MOKEY.SetBool("shot", false);
             MOKEY.SetBool("jump", true);
             gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
@@ -165,6 +144,8 @@ public class monkey : MonoBehaviour
             collision.gameObject.CompareTag("cohete"))
         {
             // 
+            audioSource.PlayOneShot(damage);
+
             GameManager.instance.vidas--;
           //  MOKEY.SetBool("jump", false);
         }
@@ -173,19 +154,24 @@ public class monkey : MonoBehaviour
     {
         if (other.CompareTag("coin2"))
         {
+           // audioSource.PlayOneShot(monedasS);
+           // Coinsmove.StartCoinMove(other.transform.position, () => {
+           //     GameManager.instance.coins++;
+           // });
+           //Destroy(other.gameObject);
+        }
 
-            Coinsmove.StartCoinMove(other.transform.position, () => {
-                GameManager.instance.coins++;
-            });
-      //      Destroy(other.gameObject);
-           // Destroy(other.gameObject.GetComponent<Collider2D>());
+        if (other.gameObject.CompareTag("enemigo"))
 
+        {
+            // 
+            audioSource.PlayOneShot(damage);
+
+        }
+        if (other.CompareTag("vida"))
+        {
+            audioSource.PlayOneShot(vidasS);
            
         }
-        if (other.gameObject.CompareTag("cabeza"))
-        {
-            Destroy(other.gameObject);
-        }
-
     }
 }
